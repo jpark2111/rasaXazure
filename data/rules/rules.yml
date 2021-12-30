@@ -117,3 +117,13 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_transaction_search
+
+- rule: Show user money options
+  steps:
+  - intent: prompt
+  - action: utter_prompt
+
+- rule: show weather
+  steps: 
+  - intent: weather
+  - action: action_weather_api

@@ -61,11 +61,11 @@ status_rasa_worker = r.json().get("worker", {}).get("status")
 my_print(r.json(), r.status_code)
 
 if status_rasa_production != 200:
-    my_print(f'rasa-production not OK!\nstatus = {status_rasa_production}')
+    my_print(f"rasa-production not OK!\nstatus = {status_rasa_production}")
     exit(1)
 
 if status_rasa_worker != 200:
-    my_print(f'rasa-worker not OK!\nstatus = {status_rasa_worker}')
+    my_print(f"rasa-worker not OK!\nstatus = {status_rasa_worker}")
     exit(1)
 
 
@@ -92,7 +92,7 @@ my_print("--\nCheck tagged production model")
 url = f"{BASE_URL}/api/projects/default/models"
 payload = {}
 headers = {"Authorization": f"Bearer {access_token}"}
-params = {'tag': 'production'}
+params = {"tag": "production"}
 r = request("GET", url, json=payload, headers=headers, params=params)
 if r.status_code != 200:
     my_print(r.json(), r.status_code)

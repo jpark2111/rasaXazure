@@ -587,6 +587,15 @@ nlu:
     - let me speak to a real person
     - let me speak to a real person please
     - i want to talk to a real person
+- intent: prompt
+  examples: |
+    - What's your money question about today?
+    - how can I help you with your money today?
+    - what money question do you have today?
+- intent: weather
+  examples: |
+    - what's the weather?
+    - What's the weather today?
 - intent: out_of_scope
   examples: |
     - what is the square root of 5

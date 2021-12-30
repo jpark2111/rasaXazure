@@ -1,6 +1,6 @@
 import os
 
-with open('deploy/gcr-auth.json', 'r') as f:
+with open("deploy/gcr-auth.json", "r") as f:
     lines = f.readlines()
     for line in lines:
         print(
@@ -20,5 +20,5 @@ with open('deploy/gcr-auth.json', 'r') as f:
                 "set_as_environment_variable-GCR_AUTH_JSON_CLIENT_ID",
                 os.environ["GCR_AUTH_JSON_CLIENT_ID"],
             ),
-            end='',
+            end="",
         )
