@@ -11,8 +11,8 @@ images:
     - name: "ecr-pull-secret"
 # action server image
 app:
-    name: "set_as_environment_variable-APP_NAME"
-    tag: "set_as_environment_variable-APP_TAG"
+    name: "jpark2111/wealthbuild_rasa_action_server"
+    tag: "initialcommit"
 # rasax specific settings
 rasax:
     tag: "set_as_environment_variable-RASAX_TAG"
