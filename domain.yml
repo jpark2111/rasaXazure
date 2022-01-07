@@ -1,30 +1,20 @@
 version: '2.0'
-config:
-  store_entities_as_slots: true
 session_config:
   session_expiration_time: 0
   carry_over_slots_to_new_session: true
 intents:
-- check_human:
-    use_entities: true
+- check_human
 - transfer_money:
     use_entities: []
-- inform:
-    use_entities: true
+- inform
 - pay_cc:
     use_entities: []
-- greet:
-    use_entities: true
-- goodbye:
-    use_entities: true
-- affirm:
-    use_entities: true
-- deny:
-    use_entities: true
-- thankyou:
-    use_entities: true
-- ask_transfer_charge:
-    use_entities: true
+- greet
+- goodbye
+- affirm
+- deny
+- thankyou
+- ask_transfer_charge
 - search_transactions:
     use_entities: []
 - check_balance:
@@ -33,24 +23,15 @@ intents:
     - credit_card
 - check_earnings:
     use_entities: []
-- check_recipients:
-    use_entities: true
-- out_of_scope:
-    use_entities: true
-- session_start:
-    use_entities: true
-- restart:
-    use_entities: true
-- trigger_handoff:
-    use_entities: true
-- handoff:
-    use_entities: true
-- human_handoff:
-    use_entities: true
-- help:
-    use_entities: true
-- nlu_fallback:
-    use_entities: true
+- check_recipients
+- out_of_scope
+- session_start
+- restart
+- trigger_handoff
+- handoff
+- human_handoff
+- help
+- nlu_fallback
 - prompt:
     use_entities: []
 - weather:
@@ -68,124 +49,79 @@ entities:
 - search_type
 slots:
   AA_CONTINUE_FORM:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   PERSON:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   account_type:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   amount-of-money:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   amount_transferred:
-    type: rasa.shared.core.slots.AnySlot
+    type: any
     initial_value: 0
-    auto_fill: true
     influence_conversation: false
   credit_card:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   currency:
-    type: rasa.shared.core.slots.AnySlot
+    type: any
     initial_value: $
-    auto_fill: true
     influence_conversation: false
   end_time:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   end_time_formatted:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   grain:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   handoff_to:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   next_form_name:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   number:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   payment_amount_type:
-    type: rasa.shared.core.slots.AnySlot
+    type: any
     initial_value: ''
-    auto_fill: true
     influence_conversation: false
   previous_form_name:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   repeated_validation_failures:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   requested_slot:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   search_type:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   start_time:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   start_time_formatted:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   time:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   time_formatted:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   vendor_name:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   zz_confirm_form:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
 responses:
   utter_out_of_scope:
@@ -305,7 +241,10 @@ responses:
   utter_recipients:
   - text: These are your known recpients to whom you can send money:{formatted_recipients}
   utter_greet:
-  - text: Hi! I'm your Financial Assistant!
+  - text: Hi! I'm  Yoli, your financial assistant.
+  - text: Hi I am Yoli, what's your name?
+  - image: https://media.giphy.com/media/Jgp3ughM1VuzAch9DC/giphy.gif
+    text: Hi-I am Yoli and I am going to make your smarter with money.
   utter_ask_handoff:
   - text: It looks like you want to be transferred to a human agent.
   utter_handoff:
@@ -319,15 +258,18 @@ responses:
   utter_bot:
   - text: I'm a virtual assistant made with Rasa.
   utter_help:
-  - text: |-
-      I can help you with your financial accounts. 
-      You can ask me things like: 
-      - What's my account balance? 
-      - Pay off my credit card 
-      - What did I spend at Target last month? 
-      - I need to transfer money
+  - buttons:
+    - payload: ''
+      title: Budgeting
+    - payload: ''
+      title: Saving
+    - payload: ''
+      title: Investing
+    - payload: ''
+      title: Life Event
+    text: Money is can be confusing, we trie to make it simple to make smart financial decisions, so let's get started. What's your question about?
   utter_prompt:
-  - text: |- 
+  - text: |-
       - Savings
       - Investing
       - Insurance
@@ -496,4 +438,3 @@ forms:
         - inform
         - transaction_search_form
         type: from_text
-e2e_actions: []
