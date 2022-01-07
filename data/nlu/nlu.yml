@@ -5,8 +5,8 @@ nlu:
     - are you a bot?
     - am i speaking to an ai?
     - are you a human or a bot?
-    - are you real? 
-    - are you virtual? 
+    - are you real?
+    - are you virtual?
     - are you an ai?
     - aren't you a bot
     - are you a chatbot
@@ -213,7 +213,6 @@ nlu:
     - good bye
     - good bye rasa bot!
     - good night
-    - goodbye
     - goodbye.
     - goodnight
     - gotta go
@@ -554,8 +553,6 @@ nlu:
     - come back
     - cool! can I do something else here?
     - hello what can you do for me
-    - help
-    - help me
     - help please
     - help pls
     - help?
@@ -578,7 +575,6 @@ nlu:
     - talk to human
     - i want human :(
     - can i talk to human
-    - i want to talk to a human
     - i want to speak to human
     - can i talk to a real person?
     - connect me to a real person
@@ -587,11 +583,6 @@ nlu:
     - let me speak to a real person
     - let me speak to a real person please
     - i want to talk to a real person
-- intent: prompt
-  examples: |
-    - What's your money question about today?
-    - how can I help you with your money today?
-    - what money question do you have today?
 - intent: weather
   examples: |
     - what's the weather?
@@ -621,13 +612,22 @@ nlu:
     - Can you make sandwiches?
     - Can you please send me an uber
     - ofif fsdfafsfs
+- intent: savings session
+  examples: |
+    - What's an emergency savings account?
+    - How much should I save?
+    - emergency savings
+    - How do I open a savings account?
+    - What's the best savings account?
+    - How do I open a high yield savings account?
+    - HYSA
 - synonym: credit
   examples: |
     - credit card
+    - card
     - credit cards
     - credit account
     - credit accounts
-    - card
     - cards
     - credit card account
 - synonym: emblem
@@ -640,3 +640,8 @@ nlu:
     - balance
     - full
     - full balance
+- synonym: savings
+  examples: |
+    - high yield savings
+    - emergency savings
+    - savings account
