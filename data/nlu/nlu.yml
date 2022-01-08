@@ -621,6 +621,20 @@ nlu:
     - Can you make sandwiches?
     - Can you please send me an uber
     - ofif fsdfafsfs
+- intent: buy_pizza
+  examples: |
+    - I want a pizza
+    - I'd like to buy a pizza
+- intent: inform
+  examples: |
+    - I'd like a [large](pizza_size) pizza
+    - [medium](pizza_size) pizza
+    - [pepperoni](pizza_type) pizza
+    - give me a [mozarella](pizza_type) pizza
+- intent: request_names
+  examples: |
+    - give name
+    - do you know my name?
 - synonym: credit
   examples: |
     - credit card
