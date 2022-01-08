@@ -937,6 +937,22 @@ class ActionShowWeather(Action):
         json = requests.get(
             address, verify=False, headers=headers, auth=(userName, password)
         ).json()["accounts"][0]["balance"]
-        dispatcher.utter_message(response="utter_weather", temp=json)
+        buttons = [
+            {"payload": "/affirm", "title": "Yes"},
+            {"payload": "/deny", "title": "No"},
+        ]
+        dispatcher.utter_message(response="utter_weather", temp=json, buttons=buttons)
 
+        return []
+
+
+class AskForSlotAction(Action):
+    def name(self) -> Text:
+        return "action_ask_last_name"
+
+    def run(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    ) -> List[EventType]:
+        first_name = tracker.get_slot("first_name")
+        dispatcher.utter_message(text=f"So {first_name}, what is your last name?")
         return []

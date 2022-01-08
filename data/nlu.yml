@@ -1,0 +1,9 @@
+version: "2.0"
+nlu:
+- intent: request_names
+  examples: |
+    - give name
+- intent: nlu_fallback
+  examples: |
+    - jay
+    - Park

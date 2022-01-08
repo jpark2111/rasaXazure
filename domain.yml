@@ -1,30 +1,23 @@
 version: '2.0'
-config:
-  store_entities_as_slots: true
 session_config:
   session_expiration_time: 0
   carry_over_slots_to_new_session: true
 intents:
-- check_human:
-    use_entities: true
+- request_names:
+    use_entities: []
+- nlu_fallback
+- check_human
 - transfer_money:
     use_entities: []
-- inform:
-    use_entities: true
+- inform
 - pay_cc:
     use_entities: []
-- greet:
-    use_entities: true
-- goodbye:
-    use_entities: true
-- affirm:
-    use_entities: true
-- deny:
-    use_entities: true
-- thankyou:
-    use_entities: true
-- ask_transfer_charge:
-    use_entities: true
+- greet
+- goodbye
+- affirm
+- deny
+- thankyou
+- ask_transfer_charge
 - search_transactions:
     use_entities: []
 - check_balance:
@@ -33,159 +26,110 @@ intents:
     - credit_card
 - check_earnings:
     use_entities: []
-- check_recipients:
-    use_entities: true
-- out_of_scope:
-    use_entities: true
-- session_start:
-    use_entities: true
-- restart:
-    use_entities: true
-- trigger_handoff:
-    use_entities: true
-- handoff:
-    use_entities: true
-- human_handoff:
-    use_entities: true
-- help:
-    use_entities: true
-- nlu_fallback:
-    use_entities: true
+- check_recipients
+- out_of_scope
+- session_start
+- restart
+- trigger_handoff
+- handoff
+- human_handoff
+- help
 - prompt:
     use_entities: []
 - weather:
     use_entities: []
 entities:
+- PERSON
+- account_type
 - amount-of-money
 - credit_card
-- payment_date
-- vendor_name
-- time
-- PERSON
-- number
-- account_type
 - handoff_to
+- number
+- payment_date
 - search_type
+- time
+- vendor_name
 slots:
+  first_name:
+    type: text
+    influence_conversation: true
+  last_name:
+    type: text
+    influence_conversation: true
   AA_CONTINUE_FORM:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   PERSON:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   account_type:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   amount-of-money:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   amount_transferred:
-    type: rasa.shared.core.slots.AnySlot
+    type: any
     initial_value: 0
-    auto_fill: true
     influence_conversation: false
   credit_card:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   currency:
-    type: rasa.shared.core.slots.AnySlot
+    type: any
     initial_value: $
-    auto_fill: true
     influence_conversation: false
   end_time:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   end_time_formatted:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   grain:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   handoff_to:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   next_form_name:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   number:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   payment_amount_type:
-    type: rasa.shared.core.slots.AnySlot
+    type: any
     initial_value: ''
-    auto_fill: true
     influence_conversation: false
   previous_form_name:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   repeated_validation_failures:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   requested_slot:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   search_type:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   start_time:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   start_time_formatted:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   time:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   time_formatted:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   vendor_name:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
   zz_confirm_form:
-    type: rasa.shared.core.slots.AnySlot
-    initial_value: null
-    auto_fill: true
+    type: any
     influence_conversation: false
 responses:
   utter_out_of_scope:
@@ -327,7 +271,7 @@ responses:
       - What did I spend at Target last month? 
       - I need to transfer money
   utter_prompt:
-  - text: |- 
+  - text: |-
       - Savings
       - Investing
       - Insurance
@@ -335,28 +279,51 @@ responses:
       - Work Benefits
       - Life Event
   utter_weather:
-  - text: The temperature is {temp}.
+  - text: The temperature is {temp}.[Learn more about Rasa here.](www.rasa.com)
+  utter_ask_first_name:
+  - text: What is your first name?
+  utter_submit:
+  - text: Ok, Thanks!
+  utter_slots_values:
+  - text: I'll remember that your name is {first_name} {last_name}!
 actions:
-- action_session_start
-- action_restart
-- action_show_balance
-- action_show_recipients
-- action_show_transfer_charge
+- action_ask_last_name
+- action_ask_transaction_search_form_zz_confirm_form
 - action_handoff
 - action_handoff_options
 - action_pay_cc
-- action_transfer_money
-- action_transaction_search
-- action_ask_transaction_search_form_zz_confirm_form
+- action_restart
+- action_session_start
+- action_show_balance
+- action_show_recipients
+- action_show_transfer_charge
+- action_switch_back_ask
+- action_switch_forms_affirm
 - action_switch_forms_ask
 - action_switch_forms_deny
-- action_switch_forms_affirm
-- action_switch_back_ask
+- action_transaction_search
+- action_transfer_money
 - action_weather_api
+- utter_slots_values
+- utter_submit
 - validate_cc_payment_form
-- validate_transfer_money_form
 - validate_transaction_search_form
+- validate_transfer_money_form
 forms:
+  name_form:
+    required_slots:
+      first_name:
+      - type: from_text
+      last_name:
+      - type: from_text
+  simple_pizza_form:
+    required_slots:
+      pizza_size:
+      - entity: pizza_size
+        type: from_entity
+      pizza_type:
+      - entity: pizza_type
+        type: from_entity
   cc_payment_form:
     required_slots:
       AA_CONTINUE_FORM:
@@ -496,4 +463,3 @@ forms:
         - inform
         - transaction_search_form
         type: from_text
-e2e_actions: []
