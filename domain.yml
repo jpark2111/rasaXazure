@@ -22,8 +22,8 @@ intents:
     use_entities: []
 - check_balance:
     use_entities:
-    - account_type
     - credit_card
+    - account_type
 - check_earnings:
     use_entities: []
 - check_recipients
@@ -38,6 +38,7 @@ intents:
     use_entities: []
 - weather:
     use_entities: []
+- buy_pizza
 entities:
 - PERSON
 - account_type
@@ -49,6 +50,8 @@ entities:
 - search_type
 - time
 - vendor_name
+- pizza_size
+- pizza_type
 slots:
   first_name:
     type: text
@@ -249,7 +252,9 @@ responses:
   utter_recipients:
   - text: These are your known recpients to whom you can send money:{formatted_recipients}
   utter_greet:
-  - text: Hi! I'm your Financial Assistant!
+  - text: Hi! I'm Yoli your financial assistant.
+  - text: Hola, I am Yoli, your financial assistant.
+  - text: Hi, I am Yoli and I am ready to answer all your money questions.
   utter_ask_handoff:
   - text: It looks like you want to be transferred to a human agent.
   utter_handoff:
@@ -262,10 +267,9 @@ responses:
   - text: What else can I help you with?
   utter_bot:
   - text: I'm a virtual assistant made with Rasa.
-  utter_help:
+  utter_help_accounts:
   - text: |-
-      I can help you with your financial accounts. 
-      You can ask me things like: 
+      Go ahead and ask me questions like:
       - What's my account balance? 
       - Pay off my credit card 
       - What did I spend at Target last month? 
@@ -286,6 +290,21 @@ responses:
   - text: Ok, Thanks!
   utter_slots_values:
   - text: I'll remember that your name is {first_name} {last_name}!
+  utter_welcome:
+  - buttons:
+    - payload: ''
+      title: Budgeting
+    - payload: ''
+      title: Saving
+    - payload: ''
+      title: Investing
+    - payload: ''
+      title: Buying a Home
+    - payload: ''
+      title: Taxes
+    - payload: ''
+      title: Life Event
+    text: Let's get started, tell me what is your money question about,
 actions:
 - action_ask_last_name
 - action_ask_transaction_search_form_zz_confirm_form

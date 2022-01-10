@@ -16,7 +16,7 @@ rules:
   steps:
   - intent: greet
   - action: utter_greet
-  - action: utter_help
+  - action: utter_welcome
 - rule: say goodbye
   steps:
   - intent: goodbye
