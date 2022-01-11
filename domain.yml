@@ -22,8 +22,8 @@ intents:
     use_entities: []
 - check_balance:
     use_entities:
-    - account_type
     - credit_card
+    - account_type
 - check_earnings:
     use_entities: []
 - check_recipients
@@ -38,6 +38,7 @@ intents:
     use_entities: []
 - weather:
     use_entities: []
+- buy_pizza
 entities:
 - PERSON
 - account_type
@@ -49,6 +50,8 @@ entities:
 - search_type
 - time
 - vendor_name
+- pizza_size
+- pizza_type
 slots:
   first_name:
     type: text
@@ -248,12 +251,8 @@ responses:
   - text: Your don't owe any money on your {credit_card} credit card bill.
   utter_recipients:
   - text: These are your known recpients to whom you can send money:{formatted_recipients}
-  utter_greet:
-  - text: Hi! I'm your Financial Assistant!
   utter_ask_handoff:
   - text: It looks like you want to be transferred to a human agent.
-  utter_handoff:
-  - text: Alright, I'll try to transfer you.
   utter_wouldve_handed_off:
   - text: If you were talking to me via chatroom, I would have handed you off to {handoffhost}.
   utter_no_handoff:
@@ -286,6 +285,9 @@ responses:
   - text: Ok, Thanks!
   utter_slots_values:
   - text: I'll remember that your name is {first_name} {last_name}!
+  utter_greet:
+  - text: Hi, I am Yoli, ready to answer all your financial questions.
+  - text: Hi, I am Yoli, your money guru.
 actions:
 - action_ask_last_name
 - action_ask_transaction_search_form_zz_confirm_form
