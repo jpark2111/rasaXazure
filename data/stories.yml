@@ -1,4 +1,3 @@
-
 version: "2.0"
 stories:
 - story: interactive_story_1
@@ -23,3 +22,9 @@ stories:
   - active_loop: null
   - action: utter_submit
   - action: utter_slots_values
+- story: start savings session
+  steps:
+  - intent: welcome
+  - intent: savings
+  - action: utter_savings_gif
+  - action: utter_savings_session

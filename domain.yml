@@ -22,8 +22,8 @@ intents:
     use_entities: []
 - check_balance:
     use_entities:
-    - account_type
     - credit_card
+    - account_type
 - check_earnings:
     use_entities: []
 - check_recipients
@@ -38,6 +38,9 @@ intents:
     use_entities: []
 - weather:
     use_entities: []
+- buy_pizza
+- start_saving_session
+- savings
 entities:
 - PERSON
 - account_type
@@ -49,6 +52,8 @@ entities:
 - search_type
 - time
 - vendor_name
+- pizza_size
+- pizza_type
 slots:
   first_name:
     type: text
@@ -249,7 +254,8 @@ responses:
   utter_recipients:
   - text: These are your known recpients to whom you can send money:{formatted_recipients}
   utter_greet:
-  - text: Hi! I'm your Financial Assistant!
+  - image: https://media.giphy.com/media/26xBwdIuRJiAIqHwA/giphy.gif
+    text: Hi! I'm Yoli, Your Financial Assistant!
   utter_ask_handoff:
   - text: It looks like you want to be transferred to a human agent.
   utter_handoff:
@@ -262,7 +268,7 @@ responses:
   - text: What else can I help you with?
   utter_bot:
   - text: I'm a virtual assistant made with Rasa.
-  utter_help:
+  utter_help_accounts:
   - text: |-
       I can help you with your financial accounts. 
       You can ask me things like: 
@@ -286,6 +292,29 @@ responses:
   - text: Ok, Thanks!
   utter_slots_values:
   - text: I'll remember that your name is {first_name} {last_name}!
+  utter_savings_session:
+  - buttons:
+    - payload: ''
+      title: High Yield Savings Acct
+    - payload: ''
+      title: CD
+    - payload: ''
+      title: Money Market Account
+    - payload: ''
+      title: Emergency Savings
+    text: Here are a couple of topics related to savings, which one do you want to know more about?
+  utter_savings_gif:
+  - image: https://media.giphy.com/media/SsNRdueeih1mQCYWV5/giphy.gif
+    text: Let's get you saving!
+  utter_welcome:
+  - buttons:
+    - payload: help
+      title: Budging
+    - payload: start_savings_session
+      title: Saving
+    - payload: help
+      title: Investing
+    text: I can answer lot's of money questions but let's get started, first tell me what kind of money question you have.
 actions:
 - action_ask_last_name
 - action_ask_transaction_search_form_zz_confirm_form

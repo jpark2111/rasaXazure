@@ -7,3 +7,10 @@ nlu:
   examples: |
     - jay
     - Park
+- intent: start_saving_session
+  examples: |
+    - Savings
+    - I want to open a savings account
+    - What's an emergency savings?
+    - high yield savings
+    - What's a HYSA?
