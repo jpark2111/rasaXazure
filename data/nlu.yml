@@ -7,3 +7,7 @@ nlu:
   examples: |
     - jay
     - Park
+- intent: savings
+  examples: |
+    - emergency savings
+    - savings account
