@@ -12,11 +12,6 @@ rules:
   steps:
   - intent: out_of_scope
   - action: utter_out_of_scope
-- rule: greet
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - action: utter_help
 - rule: say goodbye
   steps:
   - intent: goodbye

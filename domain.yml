@@ -22,8 +22,8 @@ intents:
     use_entities: []
 - check_balance:
     use_entities:
-    - account_type
     - credit_card
+    - account_type
 - check_earnings:
     use_entities: []
 - check_recipients
@@ -38,6 +38,7 @@ intents:
     use_entities: []
 - weather:
     use_entities: []
+- buy_pizza
 entities:
 - PERSON
 - account_type
@@ -49,6 +50,8 @@ entities:
 - search_type
 - time
 - vendor_name
+- pizza_type
+- pizza_size
 slots:
   first_name:
     type: text
@@ -249,7 +252,7 @@ responses:
   utter_recipients:
   - text: These are your known recpients to whom you can send money:{formatted_recipients}
   utter_greet:
-  - text: Hi! I'm your Financial Assistant!
+  - text: Hi! I'm Yoli, your smart financial assistant! Financial Assistant!
   utter_ask_handoff:
   - text: It looks like you want to be transferred to a human agent.
   utter_handoff:
@@ -271,13 +274,10 @@ responses:
       - What did I spend at Target last month? 
       - I need to transfer money
   utter_prompt:
-  - text: |-
-      - Savings
-      - Investing
-      - Insurance
-      - Buying a House
-      - Work Benefits
-      - Life Event
+  - buttons:
+    - payload: /start_savings_session
+      title: Savings
+    text: I can answer all kinds of money questions, which one do you want to get started with?
   utter_weather:
   - text: The temperature is {temp}.[Learn more about Rasa here.](www.rasa.com)
   utter_ask_first_name:
@@ -286,6 +286,8 @@ responses:
   - text: Ok, Thanks!
   utter_slots_values:
   - text: I'll remember that your name is {first_name} {last_name}!
+  utter_start_savings_session:
+  - text: Yes, let's get started saving. There are a couple of ways people save money. They can use a basic savings account, open a high yield savings account or use a CD.
 actions:
 - action_ask_last_name
 - action_ask_transaction_search_form_zz_confirm_form
