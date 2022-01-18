@@ -22,8 +22,8 @@ intents:
     use_entities: []
 - check_balance:
     use_entities:
-    - account_type
     - credit_card
+    - account_type
 - check_earnings:
     use_entities: []
 - check_recipients
@@ -38,6 +38,9 @@ intents:
     use_entities: []
 - weather:
     use_entities: []
+- buy_pizza
+- start_savings_session
+- start_emergency savings_session
 entities:
 - PERSON
 - account_type
@@ -49,6 +52,8 @@ entities:
 - search_type
 - time
 - vendor_name
+- pizza_type
+- pizza_size
 slots:
   first_name:
     type: text
@@ -249,7 +254,9 @@ responses:
   utter_recipients:
   - text: These are your known recpients to whom you can send money:{formatted_recipients}
   utter_greet:
-  - text: Hi! I'm your Financial Assistant!
+  - image: https://media.giphy.com/media/26xBwdIuRJiAIqHwA/giphy.gif
+    text: Hi! I'm Yoli your financial guru, here to help you make smarter financial decisions.
+  - text: Hola, I am Yoli, your smart financial assistant.
   utter_ask_handoff:
   - text: It looks like you want to be transferred to a human agent.
   utter_handoff:
@@ -271,13 +278,14 @@ responses:
       - What did I spend at Target last month? 
       - I need to transfer money
   utter_prompt:
-  - text: |-
-      - Savings
-      - Investing
-      - Insurance
-      - Buying a House
-      - Work Benefits
-      - Life Event
+  - buttons:
+    - payload: /start_budgeting_session
+      title: Budgeting
+    - payload: /start_savings_session
+      title: Saving
+    - payload: /start_investing_session
+      title: Investing
+    text: 'I can answer questions about:'
   utter_weather:
   - text: The temperature is {temp}.[Learn more about Rasa here.](www.rasa.com)
   utter_ask_first_name:
@@ -286,6 +294,18 @@ responses:
   - text: Ok, Thanks!
   utter_slots_values:
   - text: I'll remember that your name is {first_name} {last_name}!
+  utter_start_savings_session:
+  - buttons:
+    - payload: /start_emergencysavings_session
+      title: Emergency Saving
+    - payload: /start_hysa_session
+      title: High Yield Savings Accoutn
+    - payload: /start_CD_session
+      title: CD
+    image: https://media.giphy.com/media/SsNRdueeih1mQCYWV5/giphy.gif
+    text: Great, let's get you saving!
+  utter_start_emergencysavings_session:
+  - text: An emergency savings is simply a way to save for a rainy day. Ideally you will have saved 3-6 months of your monthly salary in a high-yield savings account but don't worry, you can start with a goal of $1000.
 actions:
 - action_ask_last_name
 - action_ask_transaction_search_form_zz_confirm_form
